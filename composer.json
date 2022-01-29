@@ -1,0 +1,23 @@
+{
+  "name": "zxkill/zxkill.logs",
+  "description": "bitrix module for logging",
+  "homepage": "https://zxkill.ru",
+  "type": "bitrix-module",
+  "keywords": [
+    "bitrix",
+    "log"
+  ],
+  "authors": [
+    {
+      "name": "Alexey Nikitin",
+      "email": "zxkill@gmail.com",
+      "role": "Author"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=7.4",
+    "composer/installers": "~1",
+    "ext-json": "*"
+  }
+}
