@@ -7,10 +7,10 @@ use ZxKill\Logs\Settings;
 
 abstract class LogAlert
 {
-    protected ?Log $objLog = null;
-    protected string $message = '';
-    protected ?Settings $settings = null;
-    protected bool $notSend = false;
+    protected $objLog = null;
+    protected $message = '';
+    protected $settings = null;
+    protected $notSend = false;
 
     public function __construct(Log $obj)
     {

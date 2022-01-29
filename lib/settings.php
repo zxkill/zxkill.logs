@@ -2,6 +2,8 @@
 
 namespace ZxKill\Logs;
 
+use Exception;
+
 /**
  * Class Settings
  * @method string LOG_DIR()
@@ -26,13 +28,16 @@ class Settings
     protected $settings = [];
     private static $instance = null;
 
+    /**
+     * @throws Exception
+     */
     private function __construct()
     {
         $settingsFilePath = __DIR__ . '/../logger.config.php';
         $settingsFile = include_once(realpath($settingsFilePath));
 
         if (!$settingsFile && !is_array($settingsFile)) {
-            throw new \Exception('Проблемы с определением настроек системы');
+            throw new Exception('Проблемы с определением настроек системы');
         } else {
             $this->settings = $settingsFile;
         }

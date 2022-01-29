@@ -6,7 +6,7 @@ use ZxKill\Logs\Log;
 
 final class AlertEmail extends LogAlert
 {
-    protected string $subject = '';
+    protected $subject = '';
 
     public function __construct(Log $obj)
     {

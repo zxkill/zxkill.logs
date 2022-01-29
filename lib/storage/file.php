@@ -12,7 +12,7 @@ final class File extends LogStorage
     /**
      * @var bool
      */
-    private bool $initLogDir = false;
+    private $initLogDir = false;
 
     /**
      * Удалим логи, которые старше, чем положено хранить
@@ -68,7 +68,7 @@ final class File extends LogStorage
      * Возвращает полный путь к папке логов.
      * @return string
      */
-    private function getLogDirPath(): string
+    private function getLogDirPath()
     {
         return $_SERVER['DOCUMENT_ROOT'] . $this->settings->LOG_DIR();
     }
@@ -78,7 +78,7 @@ final class File extends LogStorage
      * и расширения (задается в файле настроек).
      * @return string
      */
-    private function getLogFileName(): string
+    private function getLogFileName()
     {
         if ($this->settings->LOG_FILE_EXTENSION()) {
             $name = $this->objLog->getLoggerCode() . $this->settings->LOG_FILE_EXTENSION();

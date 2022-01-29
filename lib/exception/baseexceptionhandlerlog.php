@@ -1,6 +1,5 @@
 <?php
 
-
 namespace ZxKill\Logs\Exception;
 
 use Bitrix\Main\Diag\FileExceptionHandlerLog;

@@ -2,6 +2,8 @@
 
 namespace ZxKill\Logs;
 
+use Exception;
+
 /**
  * Class Log
  * @method void debug(string $message, array|object $context)
@@ -16,12 +18,12 @@ class Log
     /**
      * @var string
      */
-    protected string $logTemplate = "{date} {level} {file} {message} {context}";
+    protected $logTemplate = "{date} {level} {file} {message} {context}";
 
     /**
      * @var array
      */
-    protected array $logLevel = [
+    protected $logLevel = [
         1 => 'debug',
         2 => 'info',
         3 => 'warning',
@@ -33,7 +35,7 @@ class Log
     /**
      * @var string
      */
-    protected string $dateFormat = '';
+    protected $dateFormat = '';
 
     /**
      * @var bool|mixed|string
@@ -43,12 +45,12 @@ class Log
     /**
      * @var settings|null
      */
-    protected ?settings $settings = null;
+    protected $settings = null;
 
     /**
      * @var array
      */
-    protected array $logData = [
+    protected $logData = [
         'ITEMS' => []
     ];
 
@@ -68,18 +70,18 @@ class Log
     /**
      * @var bool
      */
-    protected bool $useBacktrace = false;
+    protected $useBacktrace = false;
     protected $storage = null;
 
-    protected bool $execPathFile = false;
+    protected $execPathFile = false;
 
     /**
      * @var array
      */
-    protected array $timers = [];
+    protected $timers = [];
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function __construct($code = false)
     {
@@ -99,7 +101,7 @@ class Log
                 $this->useBacktrace = true;
             }
         } else {
-            throw new \Exception('Метод хранения логов не обнаружен');
+            throw new Exception('Метод хранения логов не обнаружен');
         }
     }
 
@@ -116,7 +118,7 @@ class Log
      * @param int $code
      * @return mixed
      */
-    protected function getLogLevel(int $code = 1): string
+    protected function getLogLevel(int $code = 1)
     {
         return (array_key_exists($code, $this->logLevel)) ? $this->logLevel[$code] : $this->logLevel[1];
     }
@@ -190,7 +192,7 @@ class Log
         $this->sendAlert = true;
     }
 
-    public function needSendAlert(): bool
+    public function needSendAlert()
     {
         return $this->sendAlert;
     }
@@ -207,7 +209,7 @@ class Log
      * Получаем данные о вызове методов логирования в проекте
      * @return array
      */
-    protected function backtrace(): array
+    protected function backtrace()
     {
         $return = [];
         $backtraceData = debug_backtrace(false, 3);
@@ -258,7 +260,7 @@ class Log
      * @param bool $autoStop
      * @return mixed
      */
-    public function stopTimer(bool $timerCode, bool $autoStop)
+    public function stopTimer($timerCode, $autoStop = false)
     {
         if (array_key_exists($timerCode, $this->timers)) {
             $currentTimer = $this->timers[$timerCode];

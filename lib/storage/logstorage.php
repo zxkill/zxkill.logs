@@ -7,8 +7,8 @@ use ZxKill\Logs\Settings;
 
 abstract class LogStorage
 {
-    protected ?Log $objLog = null;
-    protected ?Settings $settings = null;
+    protected $objLog = null;
+    protected $settings = null;
 
     abstract protected static function getName();
     abstract protected function rotateLog();
