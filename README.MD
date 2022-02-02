@@ -73,7 +73,7 @@ $logger->sendAlert();
     }
   },
   "require": {
-    "zxkill/zxkill.logs": "dev-master"
+    "zxkill/zxkill.logs": "dev-main"
   },
 }
 
