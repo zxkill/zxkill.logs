@@ -75,6 +75,10 @@ $logger->sendAlert();
   "require": {
     "zxkill/zxkill.logs": "dev-main"
   },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true
+    }
+  }
 }
-
 ```
